@@ -16,6 +16,7 @@
 
 #include "planck.h"
 #include "action_layer.h"
+#include "password.h"
 
 extern keymap_config_t keymap_config;
 
@@ -186,7 +187,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case PASSWRD:
       if (record->event.pressed) {
-        SEND_STRING("XXXXXXXX");
+        SEND_STRING(MAC_PASSWORD);
       } 
       return false;
       break;
