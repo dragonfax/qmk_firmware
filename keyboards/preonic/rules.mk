@@ -38,7 +38,7 @@ F_USB = $(F_CPU)
 
 # Bootloader
 #     This definition is optional, and if your keyboard supports multiple bootloaders of
-#     different sizes, comment this out, and the correct address will be loaded 
+#     different sizes, comment this out, and the correct address will be loaded
 #     automatically (+60). See bootloader.mk for all options.
 ifeq ($(strip $(KEYBOARD)), preonic/rev1)
     BOOTLOADER = atmel-dfu
@@ -51,16 +51,16 @@ endif
 OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 
 # Build Options
-#   change to "no" to disable the options, or define them in the Makefile in 
+#   change to "no" to disable the options, or define them in the Makefile in
 #   the appropriate keymap folder that will get included automatically
 #
 BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE = no       # Mouse keys(+4700)
-EXTRAKEY_ENABLE = yes       # Audio control and System control(+450)
-CONSOLE_ENABLE = yes         # Console for debug(+400)
+EXTRAKEY_ENABLE = no       # Audio control and System control(+450)
+CONSOLE_ENABLE = no         # Console for debug(+400)
 COMMAND_ENABLE = no        # Commands for debug and configuration
-NKRO_ENABLE = no            # Nkey Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
-BACKLIGHT_ENABLE = yes      # Enable keyboard backlight functionality
+NKRO_ENABLE = yes            # Nkey Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
+BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality
 MIDI_ENABLE = no            # MIDI controls
 AUDIO_ENABLE = yes           # Audio output on port C6
 UNICODE_ENABLE = no         # Unicode
