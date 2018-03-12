@@ -63,6 +63,8 @@ const uint16_t PROGMEM fn_actions[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+/* http://www.keyboard-layout-editor.com/#/gists/038721238a5b4a99916fae1c107ab988 */
+
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
  * |  `   |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
