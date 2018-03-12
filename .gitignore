@@ -67,3 +67,4 @@ secrets.tar
 id_rsa_*
 /.vs
 keyboards/planck/keymaps/default/password.h
+keyboards/planck/keymaps/jstillwell/password.h
