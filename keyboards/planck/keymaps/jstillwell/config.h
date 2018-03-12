@@ -9,4 +9,6 @@
 
 #define ONESHOT_TAP_TOGGLE 2  /* Tapping this number of times holds the key until tapped this number of times again. */
 
+#define TAPPING_TERM 200
+
 #endif
