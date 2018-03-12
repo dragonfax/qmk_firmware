@@ -61,26 +61,6 @@ const uint16_t PROGMEM fn_actions[] = {
   ACTION_SWAP_HANDS_TAP_KEY(KC_SPC),
 };
 
-enum process_combo_event {
-  RESET_COMBO_INDEX,
-};
-
-const uint16_t PROGMEM test_combo[] = {KC_Q, KC_P, COMBO_END};
-combo_t key_combos[COMBO_COUNT] = {
-  [RESET_COMBO_INDEX] = COMBO_ACTION(test_combo)
-};
-
-void process_combo_event(uint8_t combo_index, bool pressed) {
-    switch(combo_index) {
-    case RESET_COMBO_INDEX:
-        if (pressed) {
-          reset_keyboard();
-        }
-        break;
-    }
-}
-
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
