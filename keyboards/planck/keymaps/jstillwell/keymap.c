@@ -30,7 +30,6 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  DELETE,
 };
 
 #define KC_VOLDN KC__VOLDOWN
@@ -79,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #else
   NUM_ROW ,
 #endif
-  {_______, DELETE,  DELETE,  DELETE,  DELETE,  _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______,_______},
+  {_______, KC_BSPC,  KC_BSPC,  KC_BSPC,  KC_BSPC,  _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______,_______},
   {_______, KC__MUTE,KC_VOLDN,KC__VOLUP,_______,_______, _______, KC_LBRC, KC_RBRC,KC_BSLASH,KC_MINUS,KC_EQUAL},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
 },
@@ -102,26 +101,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool raise_pressed = false;
 bool lower_pressed = false;
 
-bool delete_pressed = false;
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-        case DELETE:
-          if (record->event.pressed ) {
-            if ( delete_pressed ) {
-              // need to release it first. so it can press again immediately.
-              unregister_code(KC_BSPC);
-            }
-            delete_pressed = true;
-            register_code(KC_BSPC);
-          } else {
-            if ( delete_pressed ) {
-              delete_pressed = false;
-              unregister_code(KC_BSPC);
-            } else {
-              // already released, only the first release of DELETE counts.
-            }
-          }
         case LOWER:
           lower_pressed = record->event.pressed;
           if (record->event.pressed) {
