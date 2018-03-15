@@ -33,6 +33,8 @@ enum planck_keycodes {
   DELETE,
 };
 
+#define KC_VOLDN KC__VOLDOWN
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* http://www.keyboard-layout-editor.com/#/gists/e0f05dcdbec66445c2f4449b9298b2b1 */
@@ -61,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  Del |  Del |  Del |  Del |      |      |   -  |   =  |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |             |   [  |   ]  |   \  |      |      |
+ * |      | Mute | VolUp| VolDn|      |             |   [  |   ]  |   \  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      | HOME | PgDn | PgUp | END  |
  * `-----------------------------------------------------------------------------------'
@@ -69,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = {
   {KC_GRAVE,KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______},
   {_______, DELETE,  DELETE,  DELETE,  DELETE,  _______, _______, KC_MINUS,KC_EQUAL,_______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC,KC_BSLASH,_______, _______},
+  {_______, KC__MUTE,KC__VOLUP,KC_VOLDN,_______,_______, _______, KC_LBRC, KC_RBRC,KC_BSLASH,_______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
 },
 
