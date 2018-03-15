@@ -30,6 +30,7 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
+  DELETE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |  []\ |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  Ent |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -56,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |  `   |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | - =  |
+ * |  `   |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  Del |  Del |  Del |  Del |      |      |   -  |   =  |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -67,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = {
   {KC_GRAVE,KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______},
-  {_______, KC_BSPC, KC_BSPC, KC_BSPC, _______, _______, _______, KC_MINUS,KC_EQUAL,_______, _______, _______},
+  {_______, DELETE,  DELETE,  DELETE,  DELETE,  _______, _______, KC_MINUS,KC_EQUAL,_______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC,KC_BSLASH,KC_QUOT, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
 },
@@ -87,8 +88,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool raise_pressed = false;
 bool lower_pressed = false;
 
+bool delete_pressed = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+        case DELETE:
+          if (record->event.pressed ) {
+            if ( delete_pressed ) {
+              // need to release it first. so it can press again immediately.
+              unregister_code(KC_BSPC);
+            }
+            delete_pressed = true;
+            register_code(KC_BSPC);
+          } else {
+            if ( delete_pressed ) {
+              delete_pressed = false;
+              unregister_code(KC_BSPC);
+            } else {
+              // already released, only the first release of DELETE counts.
+            }
+          }
         case LOWER:
           lower_pressed = record->event.pressed;
           if (record->event.pressed) {
