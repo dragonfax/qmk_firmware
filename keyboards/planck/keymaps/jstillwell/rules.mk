@@ -5,6 +5,7 @@ ONEHAND_ENABLE = no
 EXTRAKEY_ENABLE = no       # Audio control and System control(+450)
 CONSOLE_ENABLE = no         # Console for debug(+400)
 BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality
+AUTO_SHIFT_ENABLE = yes
 
 DEFAULT_FOLDER = planck/rev4
 
