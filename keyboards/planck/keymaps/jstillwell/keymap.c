@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |  `   |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |  Del |  Del |  Del |  Del |      |      | Left | Down | Up   |Right |      |
+ * |      |  Del |  Del |  Del |  Del |      | Left | Down | Up   |Right |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      | Mute | VolUp| VolDn|      |             |   [  |   ]  |   \  |   -  |  =   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #else
   NUM_ROW ,
 #endif
-  {_______, DELETE,  DELETE,  DELETE,  DELETE,  _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______},
+  {_______, DELETE,  DELETE,  DELETE,  DELETE,  _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______,_______},
   {_______, KC__MUTE,KC__VOLUP,KC_VOLDN,_______,_______, _______, KC_LBRC, KC_RBRC,KC_BSLASH,KC_MINUS,KC_EQUAL},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
 },
