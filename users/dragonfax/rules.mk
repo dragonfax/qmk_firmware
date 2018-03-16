@@ -9,5 +9,7 @@ AUTO_SHIFT_ENABLE = yes
 AUTO_SHIFT_MODIFIERS = yes
 ONEHAND_ENABLE = yes
 
-DEFAULT_FOLDER = planck/rev4
+# DEFAULT_FOLDER = planck/rev4
+
+SRC += dragonfax.c
 

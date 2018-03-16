@@ -14,22 +14,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "planck.h"
-#include "action_layer.h"
+ #include "quantum.h"
 
 extern keymap_config_t keymap_config;
 
-enum planck_layers {
+enum custom_layers {
   _QWERTY,
   _LOWER,
   _RAISE,
   _ADJUST
 };
 
-enum planck_keycodes {
+enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
+  NEW_SAFE_RANGE,
 };
 
 #define KC_VOLDN KC__VOLDOWN
