@@ -7,7 +7,7 @@ CONSOLE_ENABLE = no         # Console for debug(+400)
 BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality
 AUTO_SHIFT_ENABLE = yes
 AUTO_SHIFT_MODIFIERS = yes
-ONEHAND_ENABLE = yes
+SWAP_HANDS_ENABLE = yes
 
 # DEFAULT_FOLDER = planck/rev4
 
