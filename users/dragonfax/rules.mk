@@ -8,8 +8,8 @@ BACKLIGHT_ENABLE = no      # Enable keyboard backlight functionality
 AUTO_SHIFT_ENABLE = yes
 AUTO_SHIFT_MODIFIERS = yes
 SWAP_HANDS_ENABLE = yes
-
-# DEFAULT_FOLDER = planck/rev4
+BOOTMAGIC_ENABLE = no
+COMMAND_ENABLE = no
 
 SRC += dragonfax.c
 
