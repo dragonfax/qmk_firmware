@@ -29,6 +29,11 @@ enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
+  UNTYPE1,
+  UNTYPE2,
+  UNTYPE3,
+  UNTYPE4,
+  UNTYPE5,
   NEW_SAFE_RANGE,
 };
 
@@ -78,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #else
   NUM_ROW ,
 #endif
-  {_______, KC_BSPC, KC_BSPC, KC_BSPC, KC_BSPC, KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______, _______},
+  {_______, UNTYPE1, UNTYPE2, UNTYPE3, UNTYPE4, UNTYPE5, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______, _______},
   {_______, KC_PLUS, KC_UNDS, KC_PIPE, KC_RCBR, KC_LCBR, KC_LBRC,KC_RBRC,KC_BSLASH,KC_MINUS,KC_EQUAL, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END }
 },
@@ -103,6 +108,17 @@ bool lower_pressed = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+        case UNTYPE1:
+        case UNTYPE2:
+        case UNTYPE3:
+        case UNTYPE4:
+        case UNTYPE5:
+          if (record->event.pressed) {
+            register_code(KC_BSPC);
+            unregister_code(KC_BSPC);
+          }
+          return false;
+          break;
         case LOWER:
           lower_pressed = record->event.pressed;
           if (record->event.pressed) {
